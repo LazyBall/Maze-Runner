@@ -1,0 +1,80 @@
+﻿<Window x:Class="Maze_Runner.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Maze_Runner"
+        mc:Ignorable="d"
+       x:Name="WindowGame"
+        Title="Maze Runner" Height="720" Width="1024" Background="Gray" WindowStyle="ThreeDBorderWindow"
+        KeyDown="GameField_Grid_KeyDown" Icon="hero.png" WindowState="Maximized">
+    <Grid>
+
+        <Grid x:Name="Menu_Grid">
+            <Label Content="MAZE RUNNER" FontFamily="Showcard Gothic" FontSize="72" FontWeight="Bold" Height="100" 
+                   Width="520" Margin="0,-500,0,0" />
+            <Button Content="Play" Width="350" Height="75" FontFamily="Showcard Gothic" FontSize="48" 
+                    Margin="0,-200,0,0" Click="Menu_Grid_Play_Button_Click"/>
+            <Button Content="Settings" Width="350" Height="75" FontFamily="Showcard Gothic" FontSize="48"
+                    Click="Menu_Grid_Settings_Button_Click"/>
+            <Button Content="Exit" Width="350" Height="75" FontFamily="Showcard Gothic" FontSize="48"
+                    Margin="0,200,0,0" Click="Menu_Grid_Exit_Button_Click"/>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Content="Results" FontSize="20" 
+                    Click="Menu_Grid_Results_Button_Click"/>
+            <Label Content="Developed by Ilya Kryukov and Aleksandr Serin" HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"/>
+        </Grid>
+
+        <DockPanel x:Name="Play_Panel" Visibility="Hidden">
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Label x:Name="Label_Level" Content="Level: " Foreground="Red" FontSize="40" Height="70" Width="180"/>
+                <Label x:Name="Label_Time" Foreground="Red" FontSize="40" Height="70" Width="250"/>
+            </StackPanel>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                          KeyDown="GameField_Grid_KeyDown" KeyUp="GameField_Grid_KeyDown">
+                <Grid x:Name="GameField_Grid" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </ScrollViewer>
+        </DockPanel>
+
+        <Grid x:Name="Settings_Grid" Visibility="Hidden">
+            <Label Content="Settings" FontSize="72" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                <Label Content="Up" FontSize="40" FontWeight="Bold" />
+                <Label Content="Down" FontSize="40" FontWeight="Bold"/>
+                <Label Content="Left" FontSize="40" FontWeight="Bold"/>
+                <Label Content="Right" FontSize="40" FontWeight="Bold"/>
+                <Label Content="Zoom In" FontSize="40" FontWeight="Bold"/>
+                <Label Content="Zoom Out" FontSize="40" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="240">
+                <Button x:Name="Setting_Up_Button" FontSize="40" Click="Setting_Any_Click"
+                         KeyDown="Setting_Up_Button_KeyDown"/>
+                <Button x:Name="Setting_Down_Button" FontSize="40"  Click="Setting_Any_Click"
+                         KeyDown="Setting_Down_Button_KeyDown"/>
+                <Button x:Name="Setting_Left_Button" FontSize="40" Click="Setting_Any_Click"
+                         KeyDown="Setting_Left_Button_KeyDown"/>
+                <Button x:Name="Setting_Right_Button" FontSize="40" Click="Setting_Any_Click"
+                         KeyDown="Setting_Right_Button_KeyDown"/>
+                <Button x:Name="Setting_Zoom_In_Button" FontSize="40" Click="Setting_Any_Click"
+                         KeyDown="Setting_Zoom_In_Button_KeyDown"/>
+                <Button x:Name="Setting_Zoom_Out_Button" FontSize="40" Click="Setting_Any_Click"
+                         KeyDown="Setting_Zoom_Out_Button_KeyDown"/>
+            </StackPanel>
+            <Button Content="Cancel" FontSize="40" HorizontalAlignment="Left" 
+                    VerticalAlignment="Bottom" Click="Settings_Grid_Cancel_Button_Click"/>
+            <Button Content="Save" FontSize="40" HorizontalAlignment="Right" 
+                    VerticalAlignment="Bottom" Click="Settings_Grid_Save_Button_Click"/>
+        </Grid>
+
+        <Grid x:Name="Results_Grid" Visibility="Hidden">
+            <Button Content="Menu" FontSize="40" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Click="Results_Grid_Menu_Button_Click"/>
+            <Label Content="Results"  FontSize="72"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" 
+                          HorizontalAlignment="Center" Margin="235,106,235,0" Width="550">
+                <StackPanel x:Name="Results_Panel" HorizontalAlignment="Center"/>
+            </ScrollViewer>
+        </Grid>
+
+    </Grid>
+</Window>
